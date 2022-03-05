@@ -10,8 +10,23 @@ const searchMobile = () =>{
 }
 
 const displayMobiles = mobiledata =>{
-    console.log(mobiledata);
+    const searchResultform = document.getElementById('searchResult')
+    console.log(mobiledata.brand);
     mobiledata.forEach(mobilename => {
-        console.log(mobilename.phone_name);
+        const div = document.createElement('div')
+        div.classList.add('col')
+        div.innerHTML = `
+        <div class="card">
+        <img src="${mobilename.image}" class="w-50 h-50  card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="text-primary card-title">Phone Name: ${mobilename.phone_name}</h5>
+          <h5 class="text-primary card-title">Brand: ${mobilename.brand}</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+        `;
+            searchResultform.appendChild(div);
+
+        // console.log(mobilename.phone_name);
     });
 }
