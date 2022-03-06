@@ -41,5 +41,29 @@ const loadMobileDetaild = seeDetails =>{
     .then(data => MobileSingleDetails(data.data))
 }
 const  MobileSingleDetails= seesingleDetails =>{
-  
+    // console.log(seesingleDetails.mainFeatures);
+    const searchResults = document.getElementById('search-Resultsingle');
+    searchResults.textContent = '';
+    const div = document.createElement('div');
+    div.classList.add('col');
+    div.innerHTML = `
+    <div class="border border-primary rounded card-body">
+         <img src="${seesingleDetails.image}" class=" w-50 card-img-top" alt="...">
+          <h5 class="card-title text-primary">Brand:  ${seesingleDetails.brand}
+         </h5>
+
+        <p class="card-text text-primary">storage:  ${seesingleDetails.mainFeatures.storage}
+         </p> 
+
+        <p class="card-text text-primary">displaySize:  ${seesingleDetails.mainFeatures.displaySize}
+         </p>
+
+        <p class="card-text text-primary">Chipset:  ${seesingleDetails.mainFeatures.chipSet}
+        </p>
+
+        <p class="card-text text-primary">Memory:  ${seesingleDetails.mainFeatures.memory} </p>
+
+    </div>
+    `;
+    searchResults.appendChild(div);
 }
